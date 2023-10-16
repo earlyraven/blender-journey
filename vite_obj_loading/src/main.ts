@@ -27,7 +27,7 @@ const renderer = new THREE.WebGL1Renderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-// Add cube from mlt and obj files
+// Add 3d object from mlt and obj files
 let robo_guy: THREE.Object3D | null = null;
 const mtlLoader = new MTLLoader();
 mtlLoader.load("../assets/blocky_robot/blocky_robot.mtl", function (materials) {
@@ -44,7 +44,7 @@ mtlLoader.load("../assets/blocky_robot/blocky_robot.mtl", function (materials) {
 function animate() {
     requestAnimationFrame(animate);
 
-    // Rotate the blender_obj_mtl_cube (for example)
+    // Rotate the 3D object
     if (robo_guy) {
         robo_guy.rotation.y += 0.01;
     }

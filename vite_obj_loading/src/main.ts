@@ -16,7 +16,7 @@ const dLighting = new THREE.DirectionalLight(0xffffff, 1); //(light color, inten
 dLighting.position.set(1, 1, 1); // Set the direction of the light
 
 // Create an ambient light (aLighting)
-const aLighting = new THREE.AmbientLight(0x404040); // light color
+const aLighting = new THREE.AmbientLight(0xffffff); // light color
 
 // Add the lights to the scene
 scene.add(dLighting);
@@ -30,11 +30,11 @@ document.body.appendChild(renderer.domElement);
 // Add 3d object from mlt and obj files
 let robo_guy: THREE.Object3D | null = null;
 const mtlLoader = new MTLLoader();
-mtlLoader.load("../assets/blocky_robot/blocky_robot.mtl", function (materials) {
+mtlLoader.load("../assets/blocky_robot/blocky_robot_colored.mtl", function (materials) {
     materials.preload();
     var objLoader = new OBJLoader();
     objLoader.setMaterials(materials);
-    objLoader.load("../assets/blocky_robot/blocky_robot.obj", function (object) {
+    objLoader.load("../assets/blocky_robot/blocky_robot_colored.obj", function (object) {
         robo_guy = object;
         scene.add(robo_guy);
     });
